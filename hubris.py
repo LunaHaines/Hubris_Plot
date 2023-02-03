@@ -32,10 +32,18 @@ melted = temp.melt(id_vars="Name")
 melted = melted.rename(columns={"value": "Rankings"})
 
 # Overall Plot
-# axis = sns.boxplot(data=melted, y="Rankings", x="Name", orient="v")
-# axis.tick_params(axis="x", labelrotation=30)
-# plt.xticks(ha="right")
-# plt.subplots_adjust(bottom=0.3, left=0.2)
+axis = sns.boxplot(data=melted, y="Rankings", x="Name", orient="v", palette="muted", boxprops={"linewidth": 0.5}, medianprops={"linewidth": 0.8})
+axis.tick_params(axis="x", labelrotation=30)
+plt.xticks(ha="right")
+plt.subplots_adjust(bottom=0.3, left=0.2)
+axis.set(xlabel=None)
+fig = axis.get_figure()
+fig.set_figwidth(10)
+fig.savefig("output/overall.png", transparent=True)
+
+# reset plot in between runs
+plt.clf()
+plt.subplots_adjust(bottom=0.1, left=0.1)
 
 # Individual Plot
 axis = sns.boxplot(x=melted[melted["Name"] == teams[0]["name"]]["Rankings"], color=teams[0]["primary color"], medianprops={"linewidth": 2, "color": teams[0]["secondary color"]})
@@ -45,8 +53,6 @@ axis.spines['top'].set_visible(False)
 axis.spines['left'].set_visible(False)
 axis.spines['right'].set_visible(False)
 axis.tick_params(left=False)
-
-# Both
 axis.set(xlabel=None)
 
 fig = axis.get_figure()
