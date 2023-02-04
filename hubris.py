@@ -159,7 +159,6 @@ custom_palette = {
     "Houston Spies": "#67556b"
 }
 
-df.drop([24, 25, 26, 27, 28, 29], inplace=True)
 df.drop(columns=["Unnamed: 0", "Unnamed: 1"], inplace=True)
 df.sort_values(by="Avg rank", inplace=True)
 df.drop(columns=["S1 Rank", "S2 Rank", "S3 Rank", "Division", "Avg rank", "StDev", "Blurb Claimed", "Blurb Submitted"], inplace=True)
