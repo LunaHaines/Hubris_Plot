@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-from collections import defaultdict
+import sys
 
 # read in csv file of power rankings data
 # file should be clean and have only the expected columns with no additional rows
-df = pd.read_csv("S3_Power_Rankings.csv")
+df = pd.read_csv(sys.argv[1])
 
 # team data for plotting later
 # colors are very not final
