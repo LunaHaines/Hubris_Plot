@@ -1,2 +1,5 @@
 output/*
 *.csv
+venv/
+.replit
+replit.nix
